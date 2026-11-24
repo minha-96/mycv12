@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aysha Minha | Resume</title>
+  <style>
+    :root {
+      --bg: #f4f6f9;
+      --paper: #ffffff;
+      --ink: #1e293b;
+      --muted: #475569;
+      --accent: #0f4c81;
+      --accent-2: #1d6fa5;
+      --accent-soft: #eef4fa;
+      --border: #e2e8f0;
+    }
+
+    [data-theme="emerald"] {
+      --accent: #065f46;
+      --accent-2: #059669;
+      --accent-soft: #ecfdf5;
+    }
+
+    [data-theme="plum"] {
+      --accent: #581c87;
+      --accent-2: #7e22ce;
+      --accent-soft: #faf5ff;
+    }
+
+    [data-theme="slate"] {
+      --accent: #1e293b;
+      --accent-2: #334155;
+      --accent-soft: #f1f5f9;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.55;
+      padding: 20px 16px 36px;
+    }
+
+    .toolbar {
+      max-width: 860px;
+      margin: 0 auto 14px;
+      background: var(--paper);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 16px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+    }
+
+    .theme-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.88rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .swatch {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 2px solid #ffffff;
+      box-shadow: 0 0 0 1px #cbd5e1;
+      cursor: pointer;
+      transition: transform 0.15s ease;
+    }
+
+    .swatch:hover {
+      transform: scale(1.12);
+    }
+
+    .swatch.active {
+      box-shadow: 0 0 0 2px var(--ink);
+    }
+
+    .print-btn {
+      background: var(--accent);
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 16px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .print-btn:hover {
+      background: var(--accent-2);
+    }
+
+    .cv {
+      max-width: 860px;
+      margin: 0 auto;
+      background: var(--paper);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+    }
+
+    .header {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+      color: #ffffff;
+      padding: 32px 36px;
+      transition: background 0.25s ease;
+    }
+
+    .header h1 {
+      font-size: 2rem;
+      letter-spacing: 0.04em;
+      margin-bottom: 6px;
+    }
+
+    .role {
+      font-size: 0.92rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.92;
+      margin-bottom: 14px;
+    }
+
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: 0.92rem;
+    }
+
+    .contact a {
+      color: #ffffff;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+    }
+
+    .contact a:hover {
+      border-bottom-color: #ffffff;
+    }
+
+    .content {
+      padding: 28px 36px 36px;
+    }
+
+    section {
+      margin-bottom: 24px;
+    }
+
+    section:last-child {
+      margin-bottom: 0;
+    }
+
+    h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent-soft);
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+    }
+
+    p {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+    }
+
+    .skill-box {
+      background: var(--accent-soft);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+    }
+
+    .skill-box strong {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .skill-box span {
+      font-size: 0.9rem;
+      color: var(--ink);
+    }
+
+    .item-title {
+      font-weight: 700;
+      color: var(--ink);
+      font-size: 0.98rem;
+    }
+
+    .item-sub {
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+    }
+
+    ul {
+      padding-left: 20px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    li {
+      margin-bottom: 5px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .pill-list li {
+      background: #f1f5f9;
+      color: var(--ink);
+      padding: 5px 11px;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 600px) {
+      .header,
+      .content {
+        padding: 22px 20px;
+      }
+
+      .header h1 {
+        font-size: 1.6rem;
+      }
+    }
+
+    @media print {
+      .toolbar {
+        display: none !important;
+      }
+
+      body {
+        background: #ffffff;
+        padding: 0;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .cv {
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <div class="theme-group">
+      <span>Theme:</span>
+      <button class="swatch active" style="background:#0f4c81" data-set-theme="blue" title="Ocean Blue" aria-label="Ocean Blue theme"></button>
+      <button class="swatch" style="background:#065f46" data-set-theme="emerald" title="Emerald" aria-label="Emerald theme"></button>
+      <button class="swatch" style="background:#581c87" data-set-theme="plum" title="Royal Plum" aria-label="Royal Plum theme"></button>
+      <button class="swatch" style="background:#1e293b" data-set-theme="slate" title="Slate" aria-label="Slate theme"></button>
+    </div>
+    <button class="print-btn" onclick="window.print()">Download / Save as PDF</button>
+  </div>
+
+  <main class="cv">
+    <header class="header">
+      <h1>AYSHA MINHA</h1>
+      <div class="role">Computer Science and Engineering Student</div>
+      <div class="contact">
+        <a href="mailto:minharafeek96@gmail.com">minharafeek96@gmail.com</a>
+        <span>+91-9995016771</span>
+      </div>
+    </header>
+
+    <div class="content">
+      <section>
+        <h2>Professional Summary</h2>
+        <p>
+          Motivated and enthusiastic Computer Science and Engineering student with knowledge of programming, web development, databases, data analysis, and modern software technologies. Familiar with Java, Python, JavaScript, HTML, CSS, React.js, SQL, MongoDB, Spring Boot, AWS, and GitHub. Interested in developing practical solutions, learning new technologies, and building a successful career in the software industry.
+        </p>
+      </section>
+
+      <section>
+        <h2>Technical Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-box">
+            <strong>Programming</strong>
+            <span>Java, Python, JavaScript</span>
+          </div>
+          <div class="skill-box">
+            <strong>Web Technologies</strong>
+            <span>HTML, CSS, React.js</span>
+          </div>
+          <div class="skill-box">
+            <strong>Database</strong>
+            <span>SQL, MongoDB, NoSQL</span>
+          </div>
+          <div class="skill-box">
+            <strong>Frameworks</strong>
+            <span>Spring Framework, Spring Boot</span>
+          </div>
+          <div class="skill-box">
+            <strong>Cloud</strong>
+            <span>Amazon Web Services (AWS)</span>
+          </div>
+          <div class="skill-box">
+            <strong>Tools &amp; Other Skills</strong>
+            <span>GitHub, Adobe Photoshop, AutoCAD, Data Analysis, Data Entry, Project Management</span>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Projects</h2>
+        <div class="item-title">Sentiment Analysis</div>
+        <div class="item-sub">Python, NLTK, Pandas</div>
+        <ul>
+          <li>Developed a sentiment analysis application to classify text as positive, negative, or neutral.</li>
+          <li>Used Natural Language Processing (NLP) techniques for text cleaning and preprocessing.</li>
+          <li>Applied techniques such as stopword removal, punctuation removal, and stemming to prepare text data.</li>
+          <li>Utilized Python, NLTK, and Pandas for data processing and sentiment classification.</li>
+          <li>Analyzed textual data to identify sentiment patterns and generate meaningful insights.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Certifications</h2>
+        <div class="item-title">Infosys Springboard — Course Completion Certificate</div>
+        <div class="item-sub">NodeJS Case Study – Movie App on Node JS and MongoDB</div>
+        <ul>
+          <li>Completed a case study focused on developing a Movie App using Node.js and MongoDB.</li>
+          <li>Gained practical knowledge of Node.js and MongoDB through application-based learning.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Education</h2>
+        <ul>
+          <li><strong>PA Polytechnic, Konaje, Mangalore</strong> — Diploma in Computer Science and Engineering</li>
+          <li><strong>PEACE PUBLIC SCHOOL</strong> — 10th / SSLC | 2024 | Percentage: 70%</li>
+        </ul>
+      </section>
+
+      <section class="two-col">
+        <div>
+          <h2>Languages</h2>
+          <ul class="pill-list">
+            <li>English</li>
+            <li>Kannada</li>
+            <li>Malayalam</li>
+          </ul>
+        </div>
+        <div>
+          <h2>Additional Skills</h2>
+          <ul class="pill-list">
+            <li>AutoCAD</li>
+            <li>Adobe Photoshop</li>
+            <li>Project Management</li>
+            <li>Data Entry</li>
+            <li>Data Analysis</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    const buttons = document.querySelectorAll('[data-set-theme]');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const theme = btn.getAttribute('data-set-theme');
+        if (theme === 'blue') {
+          document.documentElement.removeAttribute('data-theme');
+        } else {
+          document.documentElement.setAttribute('data-theme', theme);
+        }
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
